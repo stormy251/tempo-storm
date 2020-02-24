@@ -7,12 +7,12 @@ const ModalOverlay = styled(motion.div)`
   align-items: center;
   background-color: rgba(0, 0, 0, 0.6);
   display: flex;
-  height: 100vh;
+  height: 100%;
   justify-content: center;
   left: 0;
   position: absolute;
   top: 0;
-  width: 100vw;
+  width: 100%;
 `;
 
 interface Props {
