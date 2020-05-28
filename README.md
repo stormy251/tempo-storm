@@ -1,4 +1,4 @@
-# nextjs-boilerplate
+# Stormy Adams Portfolio Site
 
 This is a webapp built using the following list of technologies:
 * Nextjs (React meta-framework)
@@ -7,7 +7,7 @@ This is a webapp built using the following list of technologies:
     * Supports SSR 
 * framer-motion:
     * Imperative animation library
-    * Used to create rich layout and page transitions
+    * Used to create a rich layout and page transitions
     * Supports SSR
 * Typescript
 * Jest

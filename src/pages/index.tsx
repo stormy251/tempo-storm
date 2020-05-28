@@ -47,7 +47,7 @@ const HomePage: ZonePage = () => {
           color={colors.blueGrey.darken3}
           marginBottom={'1rem'}
         >
-          Content
+          Coming Soon...
         </Typography>
       </Column>
     </Column>

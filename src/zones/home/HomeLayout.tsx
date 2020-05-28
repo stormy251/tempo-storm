@@ -27,7 +27,7 @@ const HomeLayout = (props: Props) => {
   return (
     <Column
       justify="center"
-      color={colors.lightBlue.lighten4}
+      color={colors.lightBlue.lighten5}
     >
       <AnimatePresence
         exitBeforeEnter
