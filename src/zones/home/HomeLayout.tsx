@@ -1,18 +1,24 @@
 import React, {ReactNode} from 'react';
-import {AnimatePresence} from 'framer-motion';
+import {motion, AnimatePresence} from 'framer-motion';
 import {colors} from 'lib/theme';
-import Column from 'zones/app/components/Column';
+import {fadeVariants, ANIMATE_VARIANT_NAME, INITIAL_VARIANT_NAME, EXIT_VARIANT_NAME} from 'lib/framer-motion/motion-variants';
+import styled from 'styled-components';
+import {SideBar} from 'zones/home/components/SideBar';
 
-const homeVariants = {
-  hidden: {
-    opacity: 0,
-    y: 20
-  },
-  visible: {
-    opacity: 1,
-    y: 0
-  }
-};
+const SIDE_BAR_WIDTH = '300px';
+
+const LayoutContainer = styled.main`
+  display: grid;
+  grid-template-columns: ${SIDE_BAR_WIDTH} 1fr;
+  height: 100%;
+  width: 100%;
+`;
+
+const PageContentContainer = styled(motion.div)`
+  height: 100%;
+  width: 100%;
+  background-color: ${colors.blueGrey.base};
+`;
 
 interface Props {
   /** Must be a single React node, it cannot contain a React fragment */
@@ -25,27 +31,22 @@ const HomeLayout = (props: Props) => {
   const {children, transitionKey} = props;
 
   return (
-    <Column
-      justify="center"
-      color={colors.lightBlue.lighten5}
-    >
+    <LayoutContainer>
+      <SideBar/>
       <AnimatePresence
         exitBeforeEnter
       >
-        <Column
+        <PageContentContainer
           key={transitionKey}
-          variants={homeVariants}
-          initial="hidden"
-          animate="visible"
-          exit="hidden"
-          transition={{
-            staggerChildren: 0.6
-          }}
+          variants={fadeVariants}
+          initial={INITIAL_VARIANT_NAME}
+          animate={ANIMATE_VARIANT_NAME}
+          exit={EXIT_VARIANT_NAME}
         >
           {children}
-        </Column>
+        </PageContentContainer>
       </AnimatePresence>
-    </Column>
+    </LayoutContainer>
   );
 };
 
