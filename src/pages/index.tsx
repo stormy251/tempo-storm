@@ -1,11 +1,9 @@
 import React from 'react';
-import {ZonePage} from 'lib/types/ZonePage';
-import Typography from 'zones/app/components/Typography';
 import {colors} from 'lib/theme';
-import TempZone from 'zones/temp';
+import Typography from 'zones/app/components/Typography';
 
 // Main Page
-const HomePage: ZonePage = () => {
+const HomePage = () => {
   return (
     <Typography
       type="Display"
@@ -16,8 +14,6 @@ const HomePage: ZonePage = () => {
     </Typography>
   );
 };
-
-HomePage.zone = TempZone;
 
 // Default export is a requirement for nextjs to know this is the export for the page.
 export default HomePage;

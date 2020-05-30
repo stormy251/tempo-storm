@@ -1,4 +1,4 @@
-# Stormy Adams Portfolio Site
+# Robert Reilly Portfolio Site
 
 This is a webapp built using the following list of technologies:
 * Nextjs (React meta-framework)
