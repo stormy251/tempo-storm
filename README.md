@@ -1,4 +1,7 @@
-# Robert Reilly Portfolio Site
+# Tempo project site
+
+* IMPORTANT NOTE *
+** You will find the json file url within the getServerSideProps method in the /pages/index file **
 
 This is a webapp built using the following list of technologies:
 * Nextjs (React meta-framework)

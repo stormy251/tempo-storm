@@ -11,7 +11,7 @@ export const STYLES = {
   }
 };
 
-const typographyPropsMixin = ({align, color, display, marginBottom, noWrap}: Props) => {
+const typographyPropsMixin = ({align, color, display, marginBottom, noWrap, decoration}: Props) => {
   return css`
     color: ${() => color};
     display: ${display ? display : 'inherit'};
@@ -20,6 +20,7 @@ const typographyPropsMixin = ({align, color, display, marginBottom, noWrap}: Pro
     text-align: ${align ? align : 'inherit'};
     text-overflow: ${noWrap ? 'ellipsis' : null};
     white-space: ${noWrap ? 'noWrap' : null};
+    text-decoration: ${decoration ? decoration : null};
   `;
 };
 
@@ -49,7 +50,7 @@ const HeroText = styled(motion.h3)`
 
 const TitleText = styled(motion.h4)`
   font-size: 16px;
-  font-weight: ${STYLES.fontWeight.regular};
+  font-weight: ${STYLES.fontWeight.medium};
   letter-spacing: 0;
   line-height: 20px;
   ${(props: Props) => typographyPropsMixin(props)}
@@ -89,14 +90,14 @@ const CaptionText = styled(motion.p)`
 `;
 
 const typographyTypeMap = {
-  'Display': DisplayText,
-  'Header': HeaderText,
-  'Hero': HeroText,
-  'Title': TitleText,
-  'Subtitle': SubtitleText,
-  'Body': BodyText,
-  'Section': SectionText,
-  'Caption': CaptionText
+  Display: DisplayText,
+  Header: HeaderText,
+  Hero: HeroText,
+  Title: TitleText,
+  Subtitle: SubtitleText,
+  Body: BodyText,
+  Section: SectionText,
+  Caption: CaptionText
 };
 
 interface Props {
@@ -116,18 +117,17 @@ interface Props {
   type: 'Display' | 'Header' | 'Hero' | 'Title' | 'Subtitle' | 'Body' | 'Section' | 'Caption';
   /** Sets the framer-motion animations variants */
   variants?: any;
+  /** Sets the styles for the text-decoration property */
+  decoration?: 'underline' | 'none';
 }
 
 /** The Typography component is responsible for ensuring all text rendered in the application is consistent. */
 const Typography = (props: Props) => {
-  const {type, children, color=colors.blueGrey.darken3} = props;
+  const {type, children, color = colors.blueGrey.darken3} = props;
   const TypographyComponent = typographyTypeMap[type] || typographyTypeMap['Body'];
 
   return (
-    <TypographyComponent
-      color={color}
-      {...props}
-    >
+    <TypographyComponent color={color} {...props}>
       {children}
     </TypographyComponent>
   );
